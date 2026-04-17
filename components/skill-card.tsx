@@ -12,57 +12,57 @@ export function SkillCard({ skill }: SkillCardProps) {
   const theme = getCategoryTheme(skill.category);
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-[8px] border border-[#F3F4F6] bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+    <article className="flex h-full flex-col overflow-hidden rounded-[8px] border border-[var(--border)] bg-white transition duration-200 hover:shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
       <div
-        className="flex h-[140px] items-center justify-center border-b border-[#F3F4F6]"
+        className="flex h-[140px] items-center justify-center border-b border-[var(--border)]"
         style={{ backgroundColor: theme.background }}
       >
         <SkillThumbnail icon={theme.icon} stroke={theme.stroke} />
       </div>
 
-      <div className="flex flex-1 flex-col justify-between p-6">
+      <div className="flex flex-1 flex-col justify-between p-5">
         <div>
           <div className="flex items-start justify-between gap-3">
-            <div>
-              <span className="inline-flex rounded-full bg-[var(--surface-strong)] px-3 py-1 text-[11px] font-medium text-[var(--muted)]">
-                {categoryLabel}
-              </span>
-            </div>
-            <span className="rounded-full bg-[var(--surface-strong)] px-3 py-1 text-[11px] font-medium text-[var(--muted)]">
+            <span className="inline-flex rounded-full bg-[var(--surface-strong)] px-2.5 py-1 text-[11px] font-medium text-[var(--muted)]">
+              {categoryLabel}
+            </span>
+            <span className="rounded-full bg-[var(--surface-strong)] px-2.5 py-1 text-[11px] font-medium text-[var(--muted)]">
               {skill.description_ko && skill.is_reviewed ? "한국어" : "영문"}
             </span>
           </div>
 
-          <h2 className="mt-5 text-[15px] font-semibold tracking-[-0.02em] text-[var(--foreground)]">
-              {skill.name}
+          <h2 className="mt-4 text-[15px] font-semibold leading-6 text-[var(--foreground)]">
+            {skill.name}
           </h2>
-          <p className="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-[#6B7280]">{description}</p>
+          <p className="mt-2.5 line-clamp-3 text-[13px] font-normal leading-[1.6] text-[#6B7280]">
+            {description}
+          </p>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-5">
           <div className="flex flex-wrap gap-2">
             {skill.compatible_with.map((agent) => (
               <span
                 key={agent}
-                className="rounded-full bg-[var(--surface-strong)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--foreground)]"
+                className="rounded-full bg-[var(--surface-strong)] px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--foreground)]"
               >
                 {agent}
               </span>
             ))}
           </div>
 
-          <div className="mt-8 flex items-center justify-between gap-4">
+          <div className="mt-6 flex items-center justify-between gap-4">
             <a
               href={skill.github_url}
               target="_blank"
               rel="noreferrer"
-              className="text-sm font-semibold text-[var(--foreground)]"
+              className="text-sm font-medium text-[var(--foreground)]"
             >
               원본 GitHub
             </a>
             <Link
               href={`/skills/${skill.public_id}`}
-              className="inline-flex items-center rounded-full border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--foreground)]"
+              className="inline-flex items-center rounded-[8px] border border-[var(--border)] px-3.5 py-2 text-sm font-medium text-[var(--foreground)] transition hover:border-[var(--foreground)]"
             >
               자세히 보기
             </Link>

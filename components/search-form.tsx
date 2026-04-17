@@ -25,7 +25,7 @@ export function SearchForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full items-center gap-3 rounded-[18px] border border-[var(--border)] bg-white px-4 py-3 shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
+      className="flex w-full items-center gap-3 rounded-[8px] border border-[var(--border)] bg-white px-4 py-2.5"
     >
       <label htmlFor="skill-search" className="sr-only">
         스킬 이름 검색
@@ -39,7 +39,7 @@ export function SearchForm() {
       />
       <button
         type="submit"
-        className="min-h-11 rounded-full bg-[var(--foreground)] px-4 text-sm font-semibold text-white transition hover:bg-[var(--foreground-strong)]"
+        className="min-h-11 rounded-[8px] bg-[var(--foreground)] px-4 text-sm font-semibold text-white transition hover:bg-[var(--foreground-strong)]"
       >
         검색
       </button>

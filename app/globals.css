@@ -2,16 +2,16 @@
 
 :root {
   --background: #ffffff;
-  --surface: #fbfbfa;
-  --surface-strong: #f9fafb;
+  --surface: #fafaf9;
+  --surface-strong: #f8fafc;
   --border: #e5e7eb;
   --foreground: #111827;
   --foreground-strong: #000000;
-  --muted: #6b6b67;
+  --muted: #6b7280;
   --accent: #111827;
-  --accent-soft: #f2f2ef;
-  --tag: #f4f4f2;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --accent-soft: #f3f4f6;
+  --tag: #f9fafb;
+  --shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -46,9 +46,20 @@ input {
   font: inherit;
 }
 
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.96);
+}
+
 .page-shell {
   margin: 0 auto;
-  width: min(1200px, calc(100% - 40px));
+  width: min(1200px, calc(100% - 32px));
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    width: min(1200px, calc(100% - 80px));
+  }
 }
 
 .glass-panel {
