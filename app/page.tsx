@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Code2, FileText, Palette, Sparkles, Zap } from "lucide-react";
 import { SearchForm } from "@/components/search-form";
 import { SkillCard } from "@/components/skill-card";
 import {
@@ -64,12 +65,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               <Link
                 key={category.key}
                 href={`/?category=${encodeURIComponent(category.key)}`}
-                className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:shadow-[var(--shadow)]"
+                className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] px-5 py-4 transition hover:shadow-[var(--shadow)]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[13px] font-medium text-[var(--muted)]">카테고리</p>
-                    <p className="mt-2 text-[20px] font-semibold leading-7 tracking-[-0.02em]">
+                    <p className="mt-2 text-[18px] font-semibold leading-7 tracking-[-0.02em]">
                       {category.label}
                     </p>
                     <p className="mt-1 text-[13px] text-[var(--muted)]">{category.count}개 스킬</p>
@@ -158,30 +159,14 @@ function CategoryIcon({
   icon,
   stroke
 }: {
-  icon: "code" | "document" | "spark";
+  icon: "code" | "file-text" | "sparkles" | "palette" | "zap";
   stroke: string;
 }) {
-  if (icon === "code") {
-    return (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M9 7L4 12L9 17" stroke={stroke} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M15 7L20 12L15 17" stroke={stroke} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  }
+  const className = "h-5 w-5";
 
-  if (icon === "document") {
-    return (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M8 3H13L18 8V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V5C6 3.89543 6.89543 3 8 3Z" stroke={stroke} strokeWidth="2" />
-        <path d="M13 3V7C13 8.10457 13.8954 9 15 9H18" stroke={stroke} strokeWidth="2" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 3L14.5 8.2L20 9L16 12.9L17 18.5L12 15.8L7 18.5L8 12.9L4 9L9.5 8.2L12 3Z" stroke={stroke} strokeWidth="2" strokeLinejoin="round" />
-    </svg>
-  );
+  if (icon === "code") return <Code2 className={className} color={stroke} strokeWidth={2.2} />;
+  if (icon === "file-text") return <FileText className={className} color={stroke} strokeWidth={2.2} />;
+  if (icon === "palette") return <Palette className={className} color={stroke} strokeWidth={2.2} />;
+  if (icon === "zap") return <Zap className={className} color={stroke} strokeWidth={2.2} />;
+  return <Sparkles className={className} color={stroke} strokeWidth={2.2} />;
 }

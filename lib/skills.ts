@@ -3,6 +3,13 @@ import { getSupabaseBrowserClient } from "@/lib/supabase";
 import type { Skill } from "@/lib/types";
 
 const uncategorizedLabel = "기타";
+const keywordIconMap = [
+  { pattern: /(brand)/i, icon: "fingerprint" },
+  { pattern: /(api|code)/i, icon: "code" },
+  { pattern: /(art|canvas|design)/i, icon: "palette" },
+  { pattern: /(doc|write|text)/i, icon: "file-text" },
+  { pattern: /(auto|workflow)/i, icon: "zap" }
+] as const;
 
 function normalizeQuery(query: string | undefined) {
   return (query ?? "").trim().toLowerCase();
@@ -22,6 +29,14 @@ export function getDisplayDescription(skill: Skill) {
   }
 
   return skill.description_en;
+}
+
+export function getDisplayName(skill: Skill) {
+  return skill.name_ko?.trim() || skill.name.replace(/-/g, " ");
+}
+
+export function getDisplayOriginalName(skill: Skill) {
+  return skill.name;
 }
 
 export async function getAllSkills() {
@@ -136,7 +151,7 @@ export function getCategoryTheme(category: string | null | undefined) {
     return {
       background: "#F0FDF4",
       stroke: "#15803D",
-      icon: "document"
+      icon: "file-text"
     } as const;
   }
 
@@ -144,7 +159,7 @@ export function getCategoryTheme(category: string | null | undefined) {
     return {
       background: "#FEF3C7",
       stroke: "#D97706",
-      icon: "spark"
+      icon: "zap"
     } as const;
   }
 
@@ -152,13 +167,25 @@ export function getCategoryTheme(category: string | null | undefined) {
     return {
       background: "#FCE7F3",
       stroke: "#DB2777",
-      icon: "spark"
+      icon: "palette"
     } as const;
   }
 
   return {
     background: "#FFF7ED",
     stroke: "#EA580C",
-    icon: "spark"
+    icon: "sparkles"
   } as const;
+}
+
+export function getSkillIcon(skill: Skill) {
+  const normalized = `${skill.name} ${skill.public_id}`.toLowerCase();
+
+  for (const item of keywordIconMap) {
+    if (item.pattern.test(normalized)) {
+      return item.icon;
+    }
+  }
+
+  return getCategoryTheme(skill.category).icon;
 }

@@ -2,6 +2,7 @@ export interface Skill {
   source_id: string;
   public_id: string;
   name: string;
+  name_ko?: string | null;
   description_en: string;
   description_ko: string | null;
   is_reviewed: boolean;
