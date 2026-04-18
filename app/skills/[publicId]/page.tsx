@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCategoryLabel, getDisplayDescription, getSkillByPublicId } from "@/lib/skills";
+import {
+  getCategoryLabel,
+  getDisplayDescription,
+  getDisplayName,
+  getDisplayOriginalName,
+  getSkillByPublicId
+} from "@/lib/skills";
 
 interface SkillDetailPageProps {
   params: Promise<{
@@ -18,6 +24,9 @@ export default async function SkillDetailPage({ params }: SkillDetailPageProps) 
 
   const description = getDisplayDescription(skill);
   const categoryLabel = getCategoryLabel(skill.category);
+  const displayName = getDisplayName(skill);
+  const originalName = getDisplayOriginalName(skill);
+  const showOriginalName = displayName !== originalName;
 
   return (
     <main className="pb-16 pt-6 md:pb-24 md:pt-8">
@@ -46,8 +55,11 @@ export default async function SkillDetailPage({ params }: SkillDetailPageProps) 
             <div className="max-w-3xl">
               <p className="text-sm font-medium text-[var(--muted)]">{categoryLabel}</p>
               <h1 className="mt-3 text-4xl font-semibold tracking-[-0.06em] md:text-5xl">
-                {skill.name}
+                {displayName}
               </h1>
+              {showOriginalName ? (
+                <p className="mt-3 text-[13px] font-medium text-[#9CA3AF]">{originalName}</p>
+              ) : null}
               <p className="mt-5 text-base leading-8 text-[var(--muted)]">{description}</p>
             </div>
 

@@ -2,6 +2,7 @@ create table if not exists public.skills (
   source_id text primary key,
   public_id text not null unique,
   name text not null,
+  name_ko text,
   description_en text not null,
   description_ko text,
   is_reviewed boolean not null default false,
