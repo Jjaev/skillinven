@@ -1,0 +1,4 @@
+project_id = "gurhsuvrxulneesrmmiy"
+
+[functions.generate-summary-ko]
+verify_jwt = false

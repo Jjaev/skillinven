@@ -1,0 +1,1 @@
+DELETE FROM public.skills WHERE source_repo = 'NomaDamas/k-skill';

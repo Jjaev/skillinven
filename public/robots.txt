@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /my-skills
+Disallow: /community/new
+Disallow: /submit
+
+Sitemap: https://skillschoolkorea.lovable.app/sitemap.xml

@@ -1,0 +1,1 @@
+UPDATE public.skills SET category = '국산스킬' WHERE category = '한국전용';

@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can insert skill views" ON public.skill_views;
