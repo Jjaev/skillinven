@@ -1,21 +1,11 @@
-import { createServerFn } from '@tanstack/react-start';
-import { supabaseAdmin } from '@/integrations/supabase/client.server';
-
 /** Increments saves count for a skill identified by its public_id. */
-export const incrementSkillSave = createServerFn({ method: 'POST' })
-  .inputValidator((data: { publicId: string }) => data)
-  .handler(async ({ data }) => {
-    const { data: row, error: lookupErr } = await supabaseAdmin
-      .from('skills')
-      .select('id')
-      .eq('public_id', data.publicId)
-      .maybeSingle();
-    if (lookupErr || !row) {
-      return { ok: false as const, error: lookupErr?.message ?? 'Skill not found' };
-    }
-    const { error } = await supabaseAdmin.rpc('increment_skill_save', {
-      _skill_id: row.id,
-    });
-    if (error) return { ok: false as const, error: error.message };
-    return { ok: true as const };
-  });
+export async function incrementSkillSave({ data }: { data: { publicId: string } }) {
+  if (!data?.publicId) {
+    return { ok: false as const, error: 'Skill not found' };
+  }
+
+  return {
+    ok: false as const,
+    error: '정적 SPA 배포에서는 서버 저장 카운트 기능을 사용할 수 없습니다.',
+  };
+}
