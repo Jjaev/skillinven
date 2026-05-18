@@ -5,4 +5,4 @@ Disallow: /my-skills
 Disallow: /community/new
 Disallow: /submit
 
-Sitemap: https://skillschoolkorea.lovable.app/sitemap.xml
+Sitemap: https://skillschool.vercel.app/sitemap.xml

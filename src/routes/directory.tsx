@@ -30,11 +30,11 @@ export const Route = createFileRoute('/directory')({
       { name: 'description', content: '카테고리·CLI·토큰 비용으로 검색하는 한국어 AI 스킬 디렉토리. Claude · Codex · Gemini 호환 스킬을 한 곳에서 비교하세요.' },
       { property: 'og:title', content: '스킬 디렉토리 — 스킬학교' },
       { property: 'og:description', content: '검증된 한국어 AI 스킬을 카테고리와 CLI별로 둘러보세요.' },
-      { property: 'og:url', content: 'https://skillschoolkorea.lovable.app/directory' },
+      { property: 'og:url', content: 'https://skillschool.vercel.app/directory' },
       { property: 'og:type', content: 'website' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://skillschoolkorea.lovable.app/directory' },
+      { rel: 'canonical', href: 'https://skillschool.vercel.app/directory' },
     ],
   }),
   component: DirectoryPage,
