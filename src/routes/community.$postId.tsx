@@ -13,11 +13,11 @@ export const Route = createFileRoute('/community/$postId')({
       { name: 'description', content: '스킬학교 커뮤니티의 AI 스킬 추천·후기·질문 글.' },
       { property: 'og:title', content: '커뮤니티 글 — 스킬학교' },
       { property: 'og:description', content: '스킬학교 커뮤니티의 AI 스킬 추천·후기·질문 글.' },
-      { property: 'og:url', content: `https://skillschool.vercel.app/community/${params.postId}` },
+      { property: 'og:url', content: `https://skillschoolkorea.lovable.app/community/${params.postId}` },
       { property: 'og:type', content: 'article' },
     ],
     links: [
-      { rel: 'canonical', href: `https://skillschool.vercel.app/community/${params.postId}` },
+      { rel: 'canonical', href: `https://skillschoolkorea.lovable.app/community/${params.postId}` },
     ],
   }),
   component: PostDetailPage,

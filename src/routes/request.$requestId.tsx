@@ -26,11 +26,11 @@ export const Route = createFileRoute('/request/$requestId')({
       { name: 'description', content: `${params.requestId} AI 스킬의 한국어 설명, 사용법, 설치 명령어. Claude · Codex · Gemini 호환.` },
       { property: 'og:title', content: `${params.requestId} — 스킬학교` },
       { property: 'og:description', content: `${params.requestId} AI 스킬을 한국어로 바로 사용하세요.` },
-      { property: 'og:url', content: `https://skillschool.vercel.app/request/${params.requestId}` },
+      { property: 'og:url', content: `https://skillschoolkorea.lovable.app/request/${params.requestId}` },
       { property: 'og:type', content: 'article' },
     ],
     links: [
-      { rel: 'canonical', href: `https://skillschool.vercel.app/request/${params.requestId}` },
+      { rel: 'canonical', href: `https://skillschoolkorea.lovable.app/request/${params.requestId}` },
     ],
   }),
   component: RequestDetailPage,

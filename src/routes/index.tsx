@@ -10,11 +10,11 @@ export const Route = createFileRoute('/')({
       { name: 'keywords', content: 'AI 스킬, Claude 스킬, Codex 스킬, Gemini 스킬, AI CLI, 한국어 AI, 프롬프트, AI 자동화' },
       { property: 'og:title', content: '스킬학교 — 한국 AI CLI 스킬 디렉토리' },
       { property: 'og:description', content: '검증된 한국어 AI 스킬을 찾고, 공유하고, 토론하세요.' },
-      { property: 'og:url', content: 'https://skillschool.vercel.app/' },
+      { property: 'og:url', content: 'https://skillschoolkorea.lovable.app/' },
       { property: 'og:type', content: 'website' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://skillschool.vercel.app/' },
+      { rel: 'canonical', href: 'https://skillschoolkorea.lovable.app/' },
     ],
   }),
   component: Index,
